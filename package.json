@@ -1,0 +1,13 @@
+{
+  "name": "RESTfull",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mather",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
