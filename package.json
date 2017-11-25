@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "body-parser": "^1.18.2",
+    "mongoose": "^4.13.5",
     "nodemon": "^1.12.1"
   }
 }
