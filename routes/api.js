@@ -7,20 +7,25 @@ router.get('/ninjas', function (req, res, next) {
 });
 
 router.post('/ninjas', function (req, res, next) {
-  // var ninja = new Ninja(req.body);
-  // ninja.save();
   Ninja.create(req.body).then(function (ninja) {
     res.send(ninja);
   }).catch(next);
-
 });
 
+// update a ninja in the db
 router.put('/ninjas/:id', function (req, res, next) {
-  res.send({type: 'PUT'})
+  Ninja.findByIdAndUpdate({_id: req.params.id}, req.body).then(function () {
+    Ninja.findOne({_id: req.params.id}).then(function (ninja) {
+      res.send(ninja)
+    })
+  });
 });
 
+// delete a ninja from the db
 router.delete('/ninjas/:id', function (req, res, next) {
-  res.send({type: 'DELETE'})
+  Ninja.findByIdAndRemove({_id: req.params.id}).then(function (ninja) {
+    res.send(ninja)
+  });
 });
 
 module.exports = router;
